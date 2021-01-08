@@ -1,5 +1,7 @@
 <script>
-	export let name
+	import Farmer from "./components/Farmer.svelte";
+	import APMC from "./components/APMC.svelte";
+	import Corporate from "./components/Corporate.svelte";
 	export let user = { loggedIn: false }
 
 	export function toggle() {
@@ -8,38 +10,36 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	{#if user.loggedIn}
-	<button on:click={toggle}>
-		Log out
-	</button>
-	{:else}
-	<button on:click={toggle}>
-		Log in
-	</button>
-	{/if}
+	<div class="container">
+		<div class="list">
+			<div class="apmc">
+				<APMC></APMC>
+			</div>
+			<div class="corporate">
+				<Corporate></Corporate>
+			</div>
+		</div>
+		<div class="farmer">
+			<Farmer></Farmer>
+		</div>
 
+	</div>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	.container {
+		display: grid;
 	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	.list {
+		display: flex;
 	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	.apmc{
+		grid-row: 1;
+	}
+	.corporate{
+		grid-row: 1;
+	}
+	.farmer{
+		grid-row: 2;
 	}
 </style>
