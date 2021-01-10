@@ -5,31 +5,39 @@ export default class Bidder {
 		this.expenses = expenses
 		this.minimumPrice = minimumPrice
 		this.margin = margin
+		this.bid = null
 	}
 
 	toString() {
 		return this.name
 	}
 
-	purchase (quantity, price) {
+	purchase () {
 		// Cash is reduced because the the seller
 		// needs to be paid for the purchase
-		this.cash -= price
+		this.cash -= this.bid.price * this.bid.quantity
 		// Cash is increased after selling the product
 		// further for some profit margin
-		this.cash += price + this.margin * quantity
+		this.cash += this.bid.price + this.margin * this.bid.quantity
+		this.bid = null
 	}
 
-	bid (quantity, competingBid=0) {
-		const perUnitCompetingBid = competingBid / quantity
-		const potentialBid = quantity * (perUnitCompetingBid > this.minimumPrice ? perUnitCompetingBid + this.minimumPrice : this.minimumPrice)
-		if (this.cash < this.expenses || this.cash < potentialBid) {
+	bid ({ quantity, unit, product }, competingBid={}) {
+		const potentialBid = competingBid.price > this.minimumPrice ? competingBid.price + this.minimumPrice : this.minimumPrice
+		if (this.cash < this.expenses || this.cash < quantity * potentialBid) {
 			this.bankrupt = true
-			return -1
+			this.bid = null
+		} else {
+			// Bidders have expenses to take part in the market
+			// and for other essentials stuff
+			this.cash -= this.expenses
+			this.bid = {
+				price: potentialBid,
+				quantity,
+				unit,
+				product,
+			}
 		}
-		// Bidders have expenses to take part in the market
-		// and for other essentials stuff
-		this.cash -= this.expenses
-		return potentialBid
+		return this.bid
 	}
 }

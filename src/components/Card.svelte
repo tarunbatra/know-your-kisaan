@@ -1,5 +1,5 @@
 <script>
-	import Cash from './Cash.svelte'
+	import Meter from './Meter.svelte'
 	export let img = {}
 	export let cash = 0
 	export let name = 'Name'
@@ -10,7 +10,7 @@
 		<img src={img.src} alt={img.alt}>
 		<br>
 		<span class="cash">
-			<Cash value={cash} max={10000}></Cash>
+			<Meter name="Cash"value={cash} max={900}></Meter>
 		</span>
 		<h2>{name}</h2>
 	</div>
@@ -23,11 +23,12 @@
 		max-width: max-content;
 		display: flex;
 		flex-wrap: wrap;
-		border: 2px solid rgb(241, 93, 93);
+		border: 2px solid #ffb4a2;
 		border-radius: 1em;
 		box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
 		padding: 1em;
 		margin: 0.2em 0.2em 0.2em 0.2em;
+		background-color: #e5989b;
 	}
 
 	img {
@@ -38,15 +39,15 @@
 		border-radius: 1em;
 		padding: 0.2em;
 	}
-	span {
+	.cash {
 		display: inline-block;
 		width: 100%;
-		padding: 0.2em;
+		padding: 0.1em;
 	}
 	h2 {
 		display: block;
 		text-align: center;
-		color: green;
+		color: #6d6875;
 		margin: 0 auto;
 	}
 </style>
