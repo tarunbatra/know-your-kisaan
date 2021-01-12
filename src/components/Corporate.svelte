@@ -9,4 +9,4 @@
 	}
 </script>
 
-<Card {name} {img} cash={model.cash}></Card>
+<Card {name} {img} cash={model.cash} />

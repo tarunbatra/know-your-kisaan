@@ -4,4 +4,4 @@
   export let max = 100
 </script>
 
-<Meter name="Cash" {value} {max}></Meter>
+<Meter name="Cash" {value} {max} />

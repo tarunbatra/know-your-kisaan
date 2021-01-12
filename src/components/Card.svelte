@@ -10,7 +10,7 @@
 		<img src={img.src} alt={img.alt}>
 		<br>
 		<span class="cash">
-			<Meter name="Cash"value={cash} max={900}></Meter>
+			<Meter name="Cash"value={cash} max={900} />
 		</span>
 		<h2>{name}</h2>
 	</div>

@@ -3,7 +3,7 @@
   export let disabled = false
 </script>
 
-<button on:click class:disabled={disabled}>{text} </button>
+<button on:click class:disabled={disabled}>{text}</button>
 
 <style>
   button {

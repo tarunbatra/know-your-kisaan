@@ -1,10 +1,13 @@
 <script>
 	import { onMount } from 'svelte';
+	import Modal from 'svelte-simple-modal';
 	import Market from './models/market';
 	import Farmer from './components/Farmer.svelte';
 	import APMC from './components/APMC.svelte';
 	import Corporate from './components/Corporate.svelte';
-	import Btn from './components/Btn.svelte';
+	import Popup from './components/Popup.svelte';
+
+	import { welcomeMsg } from './constants'
 	let farmer;
 	let apmc;
 	let corporate;
@@ -19,17 +22,19 @@
 	<div class="container">
 		<div class="list">
 			<div class="apmc">
-				<APMC bind:model={apmc}></APMC>
+				<APMC bind:model={apmc} />
 			</div>
 			<div class="corporate">
-				<Corporate bind:model={corporate}></Corporate>
+				<Corporate bind:model={corporate} />
 			</div>
 		</div>
 		<div class="farmer">
-			<Farmer bind:model={farmer}></Farmer>
+			<Farmer bind:model={farmer} />
 		</div>
 		<div class="btn">
-			<Btn></Btn>
+			<Modal>
+				<Popup info={welcomeMsg} btnText="Start"/>
+			</Modal>
 		</div>
 	</div>
 </main>
