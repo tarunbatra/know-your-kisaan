@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "know-your-kisaan",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
@@ -23,5 +23,23 @@
   "dependencies": {
     "sirv-cli": "^1.0.0",
     "svelte-simple-modal": "^0.6.1"
-  }
+  },
+  "description": "Web app to simulate predatory pricing model in the context of Indian Farmers Protest 2020",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarunbatra/know-your-kisaan.git"
+  },
+  "keywords": [
+    "farmers",
+    "predatory",
+    "pricing",
+    "economics"
+  ],
+  "author": "tbking <tarun.batra00@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tarunbatra/know-your-kisaan/issues"
+  },
+  "homepage": "https://github.com/tarunbatra/know-your-kisaan#readme"
 }
