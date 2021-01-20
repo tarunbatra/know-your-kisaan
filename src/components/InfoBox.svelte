@@ -4,8 +4,8 @@
   export let appState
 
   const infoList = [
-    welcomeMsg,
-  ];
+  	welcomeMsg,
+  ]
 
 </script>
 

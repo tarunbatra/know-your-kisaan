@@ -1,7 +1,7 @@
 <script>
 	import Card from './Card.svelte'
 	import { apmc } from '../stores'
-  export let name = 'APMC'
+	export let name = 'APMC'
 
 	let img = {
 		src: '/images/apmc.jpg',

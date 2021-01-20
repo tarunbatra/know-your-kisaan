@@ -1,37 +1,42 @@
 <script>
-  import { getContext, onMount } from 'svelte';
-  const { open } = getContext('simple-modal');
-  import InfoBox from './InfoBox.svelte';
-  import BidSelector from './BidSelector.svelte';
-  import Btn from './Btn.svelte';
-  import { BTN_TEXT, STATE } from '../constants'
-  import { market } from '../stores'
+	import { getContext } from 'svelte'
+	const { open } = getContext('simple-modal')
+	import InfoBox from './InfoBox.svelte'
+	import BidSelector from './BidSelector.svelte'
+	import Btn from './Btn.svelte'
+	import { BTN_TEXT, STATE } from '../constants'
+	import { market } from '../stores'
+	import Market from '../models/market'
 
-  export let appState
+	export let appState
 
-  const componentList = [
-    InfoBox,
-    BidSelector,
-  ]
+	const componentList = [
+		InfoBox,
+		BidSelector,
+	]
 
-  async function openPopup() {
-    if (appState === STATE.GAME_STARTED) {
-      $market.startTrading()
-    }
-    open(componentList[appState], {
+	market.set(new Market())
+
+	async function openPopup() {
+		if (appState === STATE.GAME_STARTED) {
+			$market.startTrading()
+		}
+		open(componentList[appState], {
 			appState,
 			market: $market,
 		}, {}, {
-      onClose: () => {
+			onClose: () => {
 				if (appState === STATE.GAME_NOT_STARTED) {
-          appState = STATE.GAME_STARTED
-        } else {
-          const sortedBids = $market.currentBids.sort((a, b) => a?.price < b?.price)
-          $market.finishTrading(sortedBids[0])
-        }
-      },
-    })
-  }
+					appState = STATE.GAME_STARTED
+				} else {
+					const winningBidder = $market.naiveBidder.currentBid?.price > $market.predatoryBidder.currentBid?.price
+															? $market.naiveBidder
+															: $market.predatoryBidder
+					$market.finishTrading(winningBidder)
+				}
+			},
+		})
+	}
 </script>
 
 <Btn on:click={openPopup} text={BTN_TEXT[appState]}/>

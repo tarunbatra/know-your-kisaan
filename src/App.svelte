@@ -1,15 +1,10 @@
 <script>
-	import { onMount, getContext } from 'svelte';
-	import Modal from 'svelte-simple-modal';
-	import MarketModel from './models/market';
-	import Farmer from './components/Farmer.svelte';
-	import APMC from './components/APMC.svelte';
-	import Corporate from './components/Corporate.svelte';
-	import Market from './components/Market.svelte';
-	import { state } from './stores';
-
-
-	let market = new MarketModel()
+	import Modal from 'svelte-simple-modal'
+	import Farmer from './components/Farmer.svelte'
+	import APMC from './components/APMC.svelte'
+	import Corporate from './components/Corporate.svelte'
+	import Market from './components/Market.svelte'
+	import { state } from './stores'
 </script>
 
 <main>

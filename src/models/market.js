@@ -17,14 +17,13 @@ export default class Market {
 		const naiveBid = this.naiveBidder.bid(offer)
 		this.predatoryBidder.bid(offer, naiveBid || {})
 		this._updateStore()
-		return this.currentBids
 	}
 
-	finishTrading(winningBid) {
-		const { quantity, price, product } = winningBid
-		winningBid.bidder.purchase()
+	finishTrading(winningBidder) {
+		const { quantity, price, product } = winningBidder.currentBid
+		winningBidder.purchase()
 		this.seller.sell(quantity, price)
-		console.log(`${this.seller} sold ${quantity} of ${product} to ${winningBid.bidder} for a total price of ${price}`)
+		console.log(`${this.seller} sold ${quantity} of ${product} to ${winningBidder} for a total price of ${price}`)
 		this._updateStore()
 	}
 
@@ -35,5 +34,3 @@ export default class Market {
 		market.set(this)
 	}
 }
-
-new Market()
