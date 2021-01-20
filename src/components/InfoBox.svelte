@@ -1,7 +1,14 @@
 <script>
-  export let info
+  import { welcomeMsg } from '../constants'
+
+  export let appState
+
+  const infoList = [
+    welcomeMsg,
+  ];
+
 </script>
 
 <div>
-  <p>{@html info}</p>
+  <p>{@html infoList[appState]}</p>
 </div>

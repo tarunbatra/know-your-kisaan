@@ -3,15 +3,21 @@
 	export let img = {}
 	export let cash = 0
 	export let name = 'Name'
+	export let disabled = false
+	const  disabledText = 'Bankrupt'
 </script>
 
-<div class="card">
+<div class="card" >
 	<div>
-		<img src={img.src} alt={img.alt}>
+		<img src={img.src} alt={img.alt} class:disabled>
 		<br>
+		{#if disabled}
+		<h2 class="overlay">{disabledText}</h2>
+		{:else}
 		<span class="cash">
 			<Meter name="Cash"value={cash} max={900} />
 		</span>
+		{/if}
 		<h2>{name}</h2>
 	</div>
 </div>
@@ -30,7 +36,9 @@
 		margin: 0.2em 0.2em 0.2em 0.2em;
 		background-color: #e5989b;
 	}
-
+	.disabled {
+		opacity: 30%;
+	}
 	img {
 		display: inline-block;
 		width: 100%;

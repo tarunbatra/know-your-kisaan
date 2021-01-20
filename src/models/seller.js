@@ -1,9 +1,10 @@
 export default class Seller {
-	constructor({ name='Farmer', cash=1000, expenses= 1000, inventory=10 } = {}) {
+	constructor({ name='Farmer', cash=0, expenses=0, inventory=0 } = {}) {
 		this.name = name
 		this.cash = cash
 		this.expenses = expenses
 		this.inventory = inventory
+		this.bankrupt = false
 	}
 
 	toString() {
@@ -11,6 +12,9 @@ export default class Seller {
 	}
 
 	produce (quantity) {
+		if (this.cash < this.expenses) {
+			this.bankrupt = true
+		}
 		// Sellers have expenses to produce
 		// and for other essentials stuff
 		this.cash -= this.expenses
@@ -26,7 +30,7 @@ export default class Seller {
 	}
 
 	sell (quantity, price) {
-		this.cash += price
+		this.cash += quantity * price
 		this.inventory -= quantity
 	}
 }

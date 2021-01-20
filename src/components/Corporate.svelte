@@ -1,12 +1,12 @@
 <script>
 	import Card from './Card.svelte'
-	import Bidder from '../models/bidder'
+	import { corporate } from '../stores'
   export let name = 'Corporate'
-	export let model = new Bidder({ name, cash: 500 })
+
 	let img = {
 		src: '/images/corporate.jpg',
 		alt: 'Corporate buiding'
 	}
 </script>
 
-<Card {name} {img} cash={model.cash} />
+<Card name={($corporate.bankrupt ? 'Bankrupt ' : '') + name} {img} cash={$corporate.cash} />

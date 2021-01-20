@@ -1,19 +1,15 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 	import Modal from 'svelte-simple-modal';
-	import Market from './models/market';
+	import MarketModel from './models/market';
 	import Farmer from './components/Farmer.svelte';
 	import APMC from './components/APMC.svelte';
 	import Corporate from './components/Corporate.svelte';
-	import Popup from './components/Popup.svelte';
+	import Market from './components/Market.svelte';
+	import { state } from './stores';
 
-	import { welcomeMsg } from './constants'
-	let farmer;
-	let apmc;
-	let corporate;
 
-	onMount(async () => {
-	})
+	let market = new MarketModel()
 </script>
 
 <main>
@@ -22,18 +18,18 @@
 	<div class="container">
 		<div class="list">
 			<div class="apmc">
-				<APMC bind:model={apmc} />
+				<APMC />
 			</div>
 			<div class="corporate">
-				<Corporate bind:model={corporate} />
+				<Corporate />
 			</div>
 		</div>
 		<div class="farmer">
-			<Farmer bind:model={farmer} />
+			<Farmer />
 		</div>
 		<div class="btn">
 			<Modal>
-				<Popup info={welcomeMsg} btnText="Start"/>
+				<Market market={market} bind:appState={$state} />
 			</Modal>
 		</div>
 	</div>
