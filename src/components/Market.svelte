@@ -5,8 +5,8 @@
   import BidSelector from './BidSelector.svelte';
   import Btn from './Btn.svelte';
   import { BTN_TEXT, STATE } from '../constants'
+  import { market } from '../stores'
 
-  export let market
   export let appState
 
   const componentList = [
@@ -15,23 +15,21 @@
   ]
 
   async function openPopup() {
+    if (appState === STATE.GAME_STARTED) {
+      $market.startTrading()
+    }
     open(componentList[appState], {
 			appState,
-			market,
+			market: $market,
 		}, {}, {
       onClose: () => {
 				if (appState === STATE.GAME_NOT_STARTED) {
           appState = STATE.GAME_STARTED
-          const bids = market.startTrading()
-          const sortedBids = bids.sort((a, b) => a?.price < b?.price)
-          market.finishTrading(sortedBids[0])
+        } else {
+          const sortedBids = $market.currentBids.sort((a, b) => a?.price < b?.price)
+          $market.finishTrading(sortedBids[0])
         }
       },
-      onOpen: () => {
-				if (appState === STATE.GAME_STARTED) {
-          const bids = market.startTrading()
-        }
-      }
     })
   }
 </script>

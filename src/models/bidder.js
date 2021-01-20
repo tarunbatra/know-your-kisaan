@@ -37,7 +37,6 @@ export default class Bidder {
 				quantity,
 				unit,
 				product,
-				bidder: this,
 			}
 		}
 		return this.currentBid

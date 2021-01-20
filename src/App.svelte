@@ -29,7 +29,7 @@
 		</div>
 		<div class="btn">
 			<Modal>
-				<Market market={market} bind:appState={$state} />
+				<Market bind:appState={$state} />
 			</Modal>
 		</div>
 	</div>

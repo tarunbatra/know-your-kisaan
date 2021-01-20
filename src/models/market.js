@@ -1,11 +1,12 @@
 import Seller from './seller'
 import Bidder from './bidder'
-import { farmer, apmc, corporate } from '../stores'
+import { farmer, apmc, corporate, market } from '../stores'
 export default class Market {
 	constructor(seller, naiveBidder, predatoryBidder) {
 		this.seller = new Seller({ name: 'Farmer', cash: 50, expenses: 20 })
 		this.naiveBidder = naiveBidder || new Bidder({ name: 'APMC', cash: 200, expenses: 20, minimumPrice: 5, margin: 5 })
 		this.predatoryBidder = predatoryBidder || new Bidder({ name: 'Corporate', cash: 700, expenses: 10, minimumPrice: 1, margin: 10 })
+		this.currentBids = []
 		this._updateStore()
 	}
 
@@ -14,9 +15,9 @@ export default class Market {
 		const offer = this.seller.offerProduct()
 		if (!offer) throw new Error('No product to trade')
 		const naiveBid = this.naiveBidder.bid(offer)
-		const predatoryBid = this.predatoryBidder.bid(offer, naiveBid || {})
+		this.predatoryBidder.bid(offer, naiveBid || {})
 		this._updateStore()
-		return [naiveBid, predatoryBid]
+		return this.currentBids
 	}
 
 	finishTrading(winningBid) {
@@ -31,6 +32,7 @@ export default class Market {
 		farmer.set(this.seller)
 		apmc.set(this.naiveBidder)
 		corporate.set(this.predatoryBidder)
+		market.set(this)
 	}
 }
 
