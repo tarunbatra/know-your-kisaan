@@ -15,7 +15,7 @@
 		<h2 class="overlay">{disabledText}</h2>
 		{:else}
 		<span class="cash">
-			<Meter name="Cash"value={cash} max={900} />
+			<Meter name="Cash"value={cash} max={15000} />
 		</span>
 		{/if}
 		<h2>{name}</h2>

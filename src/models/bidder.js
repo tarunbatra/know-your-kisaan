@@ -19,12 +19,12 @@ export default class Bidder {
 		this.cash -= this.currentBid.price * this.currentBid.quantity
 		// Cash is increased after selling the product
 		// further for some profit margin
-		this.cash += this.currentBid.price + this.margin * this.currentBid.quantity
+		this.cash += this.margin * this.currentBid.quantity
 		this.currentBid = null
 	}
 
 	bid ({ quantity, unit, product }, competingBid={}) {
-		const potentialBid = competingBid.price > this.minimumPrice ? competingBid.price + this.minimumPrice : this.minimumPrice
+		const potentialBid = competingBid.price > this.minimumPrice ? 2 * competingBid.price : this.minimumPrice
 		if (this.cash < this.expenses || this.cash < quantity * potentialBid) {
 			this.bankrupt = true
 			this.currentBid = null

@@ -12,13 +12,16 @@ export default class Seller {
 	}
 
 	produce (quantity) {
-		if (this.cash < this.expenses) {
-			this.bankrupt = true
-		}
 		// Sellers have expenses to produce
 		// and for other essentials stuff
-		this.cash -= this.expenses
-		this.inventory += quantity
+		if (this.cash) {
+			this.cash = Math.max(this.cash - this.expenses, 0)
+			this.inventory += quantity
+		}
+		else {
+			this.bankrupt = true
+			this.inventory = 0
+		}
 	}
 
 	offerProduct () {

@@ -1,5 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
+	import { fly } from 'svelte/transition';
 	const { open } = getContext('simple-modal')
 	import InfoBox from './InfoBox.svelte'
 	import BidSelector from './BidSelector.svelte'
@@ -18,25 +19,33 @@
 	market.set(new Market())
 
 	async function openPopup() {
-		if (appState === STATE.GAME_STARTED) {
-			$market.startTrading()
+		const isGameStarted = appState === STATE.GAME_STARTED
+		if (isGameStarted) {
+			try {
+				$market.startTrading()
+			} catch (err) {
+				appState = STATE.GAME_OVER
+			}
 		}
 		open(componentList[appState], {
 			appState,
 			market: $market,
-		}, {}, {
+		}, {
+			closeButton: !isGameStarted,
+			closeOnOuterClick: !isGameStarted,
+			transitionWindow: fly,
+			transitionWindowProps: {
+				y: 20,
+				duration: 250
+			},
+		}, {
 			onClose: () => {
 				if (appState === STATE.GAME_NOT_STARTED) {
 					appState = STATE.GAME_STARTED
-				} else {
-					const winningBidder = $market.naiveBidder.currentBid?.price > $market.predatoryBidder.currentBid?.price
-															? $market.naiveBidder
-															: $market.predatoryBidder
-					$market.finishTrading(winningBidder)
 				}
 			},
 		})
 	}
 </script>
 
-<Btn on:click={openPopup} text={BTN_TEXT[appState]}/>
+<Btn on:click={openPopup} text={BTN_TEXT[appState]} disabled={appState === STATE.GAME_OVER} />
