@@ -12,9 +12,9 @@ Close this and click <kbd>Produce</kbd> to start farming. Good luck!`
 
 export const gameOverMsg = `
 <br />
-You as a farmer lost to the predatory pricing strategy of the corporate. Read more about it <a href="https://en.wikipedia.org/wiki/Predatory_pricing" >here at Wikipedia</>.
+You as a farmer lost to the predatory pricing strategy of the corporate. Read more about it <a href="https://en.wikipedia.org/wiki/Predatory_pricing">here on Wikipedia</>.
 <br /><br />
-<a href="${facebookShareURL}" target="_blank">Share onFacebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
+<a href="${facebookShareURL}" target="_blank">Share on Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
 `
 
 export const aboutUsMsg = `
@@ -22,7 +22,7 @@ This game simulates predatory pricing modal to demonstrate how the entry of priv
 <br /><br />
 The code is <a href=${githubURL}>open sourced on Github</a> and contributions are welcome!
 <br /><br />
-<a href="${facebookShareURL}" target="_blank">Share onFacebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
+<a href="${facebookShareURL}" target="_blank">Share on Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
 <br /><br />
 © Tarun Batra, ${thisYear}
 `

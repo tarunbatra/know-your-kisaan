@@ -35,20 +35,20 @@
 		}, {
 			onOpened: () => {
 				switch (appState) {
-					case STATE.GAME_NOT_STARTED:
-						appState = STATE.GAME_STARTED
-						break;
-					default:
-						break;
+				case STATE.GAME_NOT_STARTED:
+					appState = STATE.GAME_STARTED
+					break
+				default:
+					break
 				}
 			},
 			onClose: () => {
 				switch (appState) {
-					case STATE.GAME_OVER:
-						window?.location?.reload()
-						break;
-					default:
-						break;
+				case STATE.GAME_OVER:
+					window?.location?.reload()
+					break
+				default:
+					break
 				}
 			},
 		})

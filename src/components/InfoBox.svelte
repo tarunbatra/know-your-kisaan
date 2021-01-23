@@ -5,9 +5,9 @@
   export let info
 
   const infoList = [
-    welcomeMsg,
-    null,
-    gameOverMsg,
+  	welcomeMsg,
+  	null,
+  	gameOverMsg,
   ]
 
 </script>

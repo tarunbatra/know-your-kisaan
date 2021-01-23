@@ -3,11 +3,11 @@
 	const { close } = getContext('simple-modal')
 
 	export let market
-	let bidOver = false;
+	let bidOver = false
 
 	async function selectBid(winner) {
 		market.finishTrading(winner)
-		bidOver = true;
+		bidOver = true
 		close()
 	}
 </script>
