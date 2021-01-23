@@ -14,8 +14,8 @@ export default class Seller {
 	produce (quantity) {
 		// Sellers have expenses to produce
 		// and for other essentials stuff
-		if (this.cash) {
-			this.cash = Math.max(this.cash - this.expenses, 0)
+		if (this.cash - this.expenses > 0) {
+			this.cash = this.cash - this.expenses
 			this.inventory += quantity
 		}
 		else {
@@ -33,7 +33,7 @@ export default class Seller {
 	}
 
 	sell (quantity, price) {
-		this.cash += quantity * price
+		this.cash += price
 		this.inventory -= quantity
 	}
 }

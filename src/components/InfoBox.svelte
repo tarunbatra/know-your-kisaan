@@ -1,14 +1,17 @@
 <script>
-  import { welcomeMsg } from '../constants'
+  import { gameOverMsg, welcomeMsg } from '../constants'
 
   export let appState
+  export let info
 
   const infoList = [
-  	welcomeMsg,
+    welcomeMsg,
+    null,
+    gameOverMsg,
   ]
 
 </script>
 
 <div>
-  <p>{@html infoList[appState]}</p>
+  <p>{@html info || infoList[appState]}</p>
 </div>

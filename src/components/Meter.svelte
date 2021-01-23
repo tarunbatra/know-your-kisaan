@@ -5,7 +5,7 @@
 </script>
 
 <div class="meter">
-  <progress min=0 {max} {value}></progress><br>
+  <progress min=0 {max} {value}></progress><br />
   <p class="label">
     <strong>{name}: </strong>{value}
   </p>

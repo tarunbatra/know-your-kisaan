@@ -4,12 +4,16 @@
 	import APMC from './components/APMC.svelte'
 	import Corporate from './components/Corporate.svelte'
 	import Market from './components/Market.svelte'
+	import AboutUsPopup from './components/AboutUsPopup.svelte'
 	import { state } from './stores'
 </script>
 
 <main>
-	<h5 class="head">Play this quick game to</h5>
-	<h1 class="head">Know your Kisaan</h1>
+	<Modal><AboutUsPopup /></Modal>
+	<div>
+		<h5 class="head">Play this quick game to</h5>
+		<h1 class="head">Know your Kisaan</h1>
+	</div>
 	<div class="container">
 		<div class="list">
 			<div class="apmc">

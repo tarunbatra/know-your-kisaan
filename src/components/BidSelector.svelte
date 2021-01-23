@@ -20,7 +20,7 @@
 			{:else if !bidder.bankrupt}
 				<p> Bankrupt {bidder.name} can not participate</p>
 			{/if}
-			<br>
+			<br />
 			<button winner={bidder} on:click={selectBid.bind(this, bidder)} disabled={bidOver || bidder.bankrupt} > Sell </button>
 		</div>
 	{/each}

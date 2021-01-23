@@ -1,12 +1,30 @@
 import Seller from './seller'
 import Bidder from './bidder'
 import { farmer, apmc, corporate, market } from '../stores'
+import { parameters } from '../constants'
+
 export default class Market {
-	constructor(seller, naiveBidder, predatoryBidder) {
-		this.seller = new Seller({ name: 'Farmer', cash: 500, expenses: 100 })
-		this.naiveBidder = naiveBidder || new Bidder({ name: 'APMC', cash: 2000, expenses: 500, minimumPrice: 50, margin: 5 })
-		this.predatoryBidder = predatoryBidder || new Bidder({ name: 'Corporate', cash: 10000, expenses: 100, minimumPrice: 10, margin: 10 })
-		this.currentBids = []
+	constructor() {
+		this.seller = new Seller({
+			name: 'Farmer',
+			cash: parameters.farmer.cash,
+			expenses: parameters.farmer.expenses,
+		})
+		this.naiveBidder = new Bidder({
+			name: 'APMC',
+			cash: parameters.apmc.cash,
+			expenses: parameters.apmc.expenses,
+			minimumPrice: parameters.apmc.minimumPrice,
+			margin: parameters.apmc.margin,
+		})
+		this.predatoryBidder = new Bidder({
+			name: 'Corporate',
+			cash: parameters.corporate.cash,
+			expenses: parameters.corporate.expenses,
+			minimumPrice: parameters.corporate.minimumPrice,
+			margin: parameters.corporate.margin,
+		})
+
 		this._updateStore()
 	}
 

@@ -9,4 +9,4 @@
 	}
 </script>
 
-<Card name={($corporate.bankrupt ? 'Bankrupt ' : '') + name} {img} cash={$corporate.cash} />
+<Card {name} {img} cash={$corporate.cash} disabled={$corporate.bankrupt} />

@@ -9,4 +9,4 @@
 	}
 </script>
 
-<Card name={($apmc.bankrupt ? 'Bankrupt ' : '') + name} {img} cash={$apmc.cash} />
+<Card {name} {img} cash={$apmc.cash} disabled={$apmc.bankrupt} />

@@ -10,12 +10,12 @@
 <div class="card" >
 	<div>
 		<img src={img.src} alt={img.alt} class:disabled>
-		<br>
+		<br />
 		{#if disabled}
-		<h2 class="overlay">{disabledText}</h2>
+		<h2 class="overlay">{disabledText}</h2><br />
 		{:else}
 		<span class="cash">
-			<Meter name="Cash"value={cash} max={15000} />
+			<Meter name="Cash" value={cash} max={2000} />
 		</span>
 		{/if}
 		<h2>{name}</h2>
@@ -38,6 +38,7 @@
 	}
 	.disabled {
 		opacity: 30%;
+		filter: grayscale(100%);
 	}
 	img {
 		display: inline-block;
@@ -57,5 +58,9 @@
 		text-align: center;
 		color: #6d6875;
 		margin: 0 auto;
+	}
+	.overlay {
+		text-align: center;
+		vertical-align: middle;
 	}
 </style>
