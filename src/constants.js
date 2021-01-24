@@ -30,10 +30,6 @@ This game simulates predatory pricing modal to find out if the entry of private 
 <strong>Share</strong> on <a href="${facebookShareURL}" target="_blank">Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
 <br /><br />
 <strong>Disclaimer:</strong> The simulation is not verified by economists and may not be an accurate prediction of the future. The author is not liable for any damages occuring from the use of this simulation and website.
-<br /><br />
-The code is <a href=${githubURL} target="_blank">open sourced on Github</a> and contributions are welcome!
-<br /><br />
-© Tarun Batra, ${year}
 `
 
 export const STATE = {
