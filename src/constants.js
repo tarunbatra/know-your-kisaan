@@ -19,7 +19,7 @@ Close this and click <kbd>Harvest</kbd> to start farming. Good luck!`
 
 export const gameOverMsg = `
 <br />
-You as a farmer lost to the predatory pricing strategy of the corporate. This strategy is typical in markets where private companies for monopolies. Read more about it <a href="https://en.wikipedia.org/wiki/Predatory_pricing">here on Wikipedia</>.
+You as a farmer lost to the predatory pricing strategy of the corporate. This strategy is typical in markets where private companies form monopolies. Read more about it <a href="https://en.wikipedia.org/wiki/Predatory_pricing" target="_blank">here on Wikipedia</>.
 <br /><br />
 <a href="${facebookShareURL}" target="_blank">Share on Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
 `
@@ -31,7 +31,7 @@ This game simulates predatory pricing modal to find out if the entry of private 
 <br /><br />
 <strong>Disclaimer:</strong> The simulation is not verified by economists and may not be an accurate prediction of the future. The author is not liable for any damages occuring from the use of this simulation and website.
 <br /><br />
-The code is <a href=${githubURL}>open sourced on Github</a> and contributions are welcome!
+The code is <a href=${githubURL} target="_blank">open sourced on Github</a> and contributions are welcome!
 <br /><br />
 © Tarun Batra, ${year}
 `
