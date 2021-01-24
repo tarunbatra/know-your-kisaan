@@ -3,7 +3,6 @@ export const year = new Date().getFullYear()
 export const url = 'knowyourkisaan.com'
 const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`
 const twitterShareURL = `http://www.twitter.com/share?url=${url}`
-const githubURL = 'http://www.github.com/tarunbatra/know-your-kisaan'
 
 export const currency = '₹'
 
