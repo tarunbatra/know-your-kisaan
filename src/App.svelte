@@ -29,11 +29,10 @@
 			<Farmer />
 		</div>
 		<div class="btn">
-			{#if $state !== STATE.GAME_OVER}
 			<Modal>
 				<Market bind:appState={$state} />
 			</Modal>
-			{:else}
+			{#if $state === STATE.GAME_OVER}
 				<Btn on:click={() => window.location.reload()} text="Reset" />
 			{/if}
 		</div>
