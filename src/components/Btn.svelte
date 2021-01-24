@@ -8,7 +8,7 @@
 <style>
   button {
     display: block;
-    min-width: fit-content;
+    min-width: 50%;
     width: 90vw;
     background-color: #be7777;
     border: 2px white;
@@ -23,7 +23,7 @@
   }
   @media (min-width: 600px) {
     button {
-      width: 25vw;
+      width: 400px;
     }
   }
 </style>

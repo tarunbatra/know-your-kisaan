@@ -1,10 +1,10 @@
 <script>
 	import { getContext } from 'svelte'
-	const { open } = getContext('simple-modal')
+	const { open, close } = getContext('simple-modal')
 	import InfoBox from './InfoBox.svelte'
 	import BidSelector from './BidSelector.svelte'
 	import Btn from './Btn.svelte'
-	import { BTN_TEXT, STATE } from '../constants'
+	import { mainBtnText, STATE, infoboxHeaderList } from '../constants'
 	import { market } from '../stores'
 	import Market from '../models/market'
 
@@ -15,6 +15,8 @@
 		BidSelector,
 		InfoBox,
 	]
+
+	let count = 0
 
 	market.set(new Market())
 
@@ -29,6 +31,9 @@
 		open(componentList[appState], {
 			appState,
 			market: $market,
+			close,
+			count,
+			header: infoboxHeaderList[appState]
 		}, {
 			closeButton: appState !== STATE.GAME_STARTED,
 			closeOnOuterClick: appState !== STATE.GAME_STARTED,
@@ -43,6 +48,8 @@
 				}
 			},
 			onClose: () => {
+				count++
+
 				switch (appState) {
 				case STATE.GAME_OVER:
 					window?.location?.reload()
@@ -55,4 +62,4 @@
 	}
 </script>
 
-<Btn on:click={openPopup} text={BTN_TEXT[appState]} />
+<Btn on:click={openPopup} text={mainBtnText[appState]} />

@@ -30,7 +30,7 @@ export default class Market {
 
 	startTrading() {
 		console.log(this.seller)
-		this.seller.produce(1)
+		this.seller.produce(10)
 		const offer = this.seller.offerProduct()
 		if (!offer || this.seller.bankrupt) {
 			this._updateStore()

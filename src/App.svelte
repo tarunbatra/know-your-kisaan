@@ -66,12 +66,17 @@
 	@media (min-width: 600px) {
 		.container {
 			margin-left: 25%;
+			grid-template-columns: 200px 400px 200px;
 		}
 		.farmer {
-			margin-left: 17%;
+			grid-column: 2;
+		}
+		.list {
+			grid-column-start: 1;
+			grid-column-end: 4;
 		}
 		.btn {
-			margin-left: -32%;
+			grid-column: 2;
 		}
 	}
 </style>

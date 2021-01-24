@@ -6,6 +6,7 @@ import { aboutUsMsg } from '../constants'
 
 function openAboutSection () {
 	open(InfoBox, {
+		header: 'About us',
 		info: aboutUsMsg,
 	})
 }
