@@ -1,7 +1,7 @@
 # Know Your Kisaan
-Deployed at: https://know-your-kisaan.vercel.app
+Deployed at: https://knowyourkisaan.com
 
-![No farmers no food](https://know-your-kisaan.vercel.app/favicon.png)
+![No farmers no food](https://knowyourkisaan.com/favicon.png)
 
 
 This is a demo web app to show predatory pricing strategy in a market to root out competition is not good for the consumers in the long run. The UI components are made while keeping the [2020 Indian agricuture acts](https://en.wikipedia.org/wiki/2020_Indian_agriculture_acts) in mind but the economic models are generic and can be applied to other markets too.
