@@ -49,14 +49,6 @@
 			},
 			onClose: () => {
 				count++
-
-				switch (appState) {
-				case STATE.GAME_OVER:
-					window?.location?.reload()
-					break
-				default:
-					break
-				}
 			},
 		})
 	}

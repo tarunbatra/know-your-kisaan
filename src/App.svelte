@@ -5,7 +5,9 @@
 	import Corporate from './components/Corporate.svelte'
 	import Market from './components/Market.svelte'
 	import AboutUsPopup from './components/AboutUsPopup.svelte'
+	import Btn from './components/Btn.svelte'
 	import { state } from './stores'
+	import { STATE } from './constants'
 </script>
 
 <main>
@@ -27,9 +29,13 @@
 			<Farmer />
 		</div>
 		<div class="btn">
+			{#if $state !== STATE.GAME_OVER}
 			<Modal>
 				<Market bind:appState={$state} />
 			</Modal>
+			{:else}
+				<Btn on:click={() => window.location.reload()} text="Reset" />
+			{/if}
 		</div>
 	</div>
 </main>
