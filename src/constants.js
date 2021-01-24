@@ -25,11 +25,13 @@ You as a farmer lost to the predatory pricing strategy of the corporate. This st
 `
 
 export const aboutUsMsg = `
-This game simulates predatory pricing modal to demonstrate how the entry of private players in Indian agriculture without safeguards like MSP caan leave the farmers in a worse state in the long run.
+This game simulates predatory pricing modal to find out if the entry of private players in Indian agriculture without safeguards like MSP can leave the farmers in a worse state in the long run.
+<br /><br />
+<strong>Share</strong> on <a href="${facebookShareURL}" target="_blank">Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
+<br /><br />
+<strong>Disclaimer:</strong> The simulation is not verified by economists and may not be an accurate prediction of the future. The author is not liable for any damages occuring from the use of this simulation and website.
 <br /><br />
 The code is <a href=${githubURL}>open sourced on Github</a> and contributions are welcome!
-<br /><br />
-<a href="${facebookShareURL}" target="_blank">Share on Facebook</a> and <a href="${twitterShareURL}"/>Tweet</a>.
 <br /><br />
 © Tarun Batra, ${year}
 `
